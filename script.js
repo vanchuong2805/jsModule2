@@ -20,10 +20,18 @@ const images = document.querySelectorAll('#collection img');
 
 images.forEach(img => {
     img.addEventListener('mouseenter', function () {
-        showImage(this);
-    });
+        showImage(this)
+    })
 
     img.addEventListener('mouseleave', function () {
-        resetShowIMG();
-    });
+        resetShowIMG()
+    })
+
+    img.addEventListener('focus', function () {
+        showImage(this)
+    })
+
+    img.addEventListener('blur', function () {
+        resetShowIMG()
+    })
 });
