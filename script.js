@@ -16,12 +16,14 @@ function resetShowIMG() {
     text.style.color = 'green';
 }
 
-document.body.addEventListener('click', function (event) {
-    const showIMG = document.getElementById("showIMG");
-    if (!showIMG.contains(event.target) && !event.target.closest('#collection img')) {
-        resetShowIMG()
-    }
-    if (event.target.matches('#collection img')) {
-        showImage(event.target)
-    }
-})
+const images = document.querySelectorAll('#collection img');
+
+images.forEach(img => {
+    img.addEventListener('mouseenter', function () {
+        showImage(this);
+    });
+
+    img.addEventListener('mouseleave', function () {
+        resetShowIMG();
+    });
+});
